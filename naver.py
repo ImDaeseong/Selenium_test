@@ -17,10 +17,12 @@ if __name__ == '__main__':
     sid = ''
     spwd = ''
 
+    # 아이디 입력
     browser.implicitly_wait(10)
     id = browser.find_element_by_id('id')
     id.send_keys(sid)
 
+    # 비밀번호 입력
     browser.implicitly_wait(10)
     pw = browser.find_element_by_id('pw')
     pw.send_keys(spwd)
