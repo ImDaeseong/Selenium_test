@@ -1,6 +1,5 @@
 from selenium import webdriver
 
-
 if __name__ == '__main__':
 
     # Chrome WebDriver 로 chrome.exe 실행
@@ -11,7 +10,7 @@ if __name__ == '__main__':
     browser.get("https://github.com/ImDaeseong")
 
     # 페이지 읽기
-    print(browser.page_source)
+    # print(browser.page_source)
 
     # 드라이브 종료
     browser.quit()

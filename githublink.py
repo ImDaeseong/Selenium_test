@@ -1,6 +1,5 @@
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 if __name__ == '__main__':
 
@@ -27,7 +26,7 @@ if __name__ == '__main__':
     browser.find_element_by_link_text('DaeseongSwift').click()
 
     # 페이지 읽기
-    print(browser.page_source)
+    # print(browser.page_source)
 
     # 3초후 종료
     time.sleep(3)

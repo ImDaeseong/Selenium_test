@@ -32,7 +32,7 @@ if __name__ == '__main__':
     btnlogin.click()
 
     # 페이지 읽기
-    print(browser.page_source)
+    # print(browser.page_source)
 
     # 3초후 종료
     time.sleep(3)

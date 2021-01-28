@@ -19,7 +19,7 @@ if __name__ == '__main__':
     serachbutton.click()
 
     # 페이지 읽기
-    print(browser.page_source)
+    #print(browser.page_source)
 
     # 드라이브 종료
     browser.quit()

@@ -1,7 +1,4 @@
 from selenium import webdriver
-import time
-
-from selenium.webdriver.common.keys import Keys
 
 if __name__ == '__main__':
 
@@ -26,7 +23,7 @@ if __name__ == '__main__':
     search_button.click()
 
     # 페이지 읽기
-    print(browser.page_source)
+    # print(browser.page_source)
 
     # 드라이브 종료
     browser.quit()

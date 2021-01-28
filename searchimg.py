@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 if __name__ == '__main__':
+
     # Chrome WebDriver 로 chrome.exe 실행
     browser = webdriver.Chrome('./chromedriver.exe')
 
