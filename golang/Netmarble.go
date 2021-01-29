@@ -1,4 +1,4 @@
-// github
+// Netmarble
 package main
 
 import (
@@ -31,20 +31,33 @@ func main() {
 	}
 	defer wd.Quit()
 
-	err = wd.Get("https://github.com/ImDaeseong")
+	err = wd.Get("https://finance.naver.com/item/main.nhn?code=251270")
 	if err != nil {
 		panic(err)
 	}
 
-	wd.SetImplicitWaitTimeout(10 * time.Second)
+	//1분에 한번씩 refresh
+	Ticker := time.NewTicker(60 * time.Second)
+	defer Ticker.Stop()
 
-	url, _ := wd.CurrentURL()
-	title, _ := wd.Title()
-	pagesource, _ := wd.PageSource()
+	bDoneChan := make(chan bool)
 
-	fmt.Println(url)
-	fmt.Println(title)
-	fmt.Println(pagesource)
+	//종료
+	go func() {
+		time.Sleep(3600 * time.Second)
+		bDoneChan <- true
+	}()
 
-	time.Sleep(10 * time.Second)
+	for {
+		select {
+		case <-Ticker.C:
+			//웹페이지 refresh
+			wd.Refresh()
+
+		case <-bDoneChan:
+			//리턴하면 종료됨
+			return
+		}
+	}
+
 }

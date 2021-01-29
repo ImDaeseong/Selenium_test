@@ -1,4 +1,3 @@
-// github
 package main
 
 import (
@@ -31,10 +30,19 @@ func main() {
 	}
 	defer wd.Quit()
 
-	err = wd.Get("https://github.com/ImDaeseong")
+	err = wd.Get("https://youtube.com")
 	if err != nil {
 		panic(err)
 	}
+
+	wd.SetImplicitWaitTimeout(10 * time.Second)
+
+	id, _ := wd.FindElement(selenium.ByCSSSelector, `#search`)
+	id.Clear()
+	id.SendKeys("아이유")
+
+	searchbtn, _ := wd.FindElement(selenium.ByCSSSelector, `#search-icon-legacy > yt-icon`)
+	searchbtn.Click()
 
 	wd.SetImplicitWaitTimeout(10 * time.Second)
 

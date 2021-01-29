@@ -1,4 +1,4 @@
-// github
+// google
 package main
 
 import (
@@ -31,7 +31,7 @@ func main() {
 	}
 	defer wd.Quit()
 
-	err = wd.Get("https://github.com/ImDaeseong")
+	err = wd.Get("https://www.google.com")
 	if err != nil {
 		panic(err)
 	}

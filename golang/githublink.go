@@ -1,4 +1,4 @@
-// github
+// githublink
 package main
 
 import (
@@ -31,10 +31,15 @@ func main() {
 	}
 	defer wd.Quit()
 
-	err = wd.Get("https://github.com/ImDaeseong")
+	err = wd.Get("https://github.com/ImDaeseong?tab=repositories")
 	if err != nil {
 		panic(err)
 	}
+
+	wd.SetImplicitWaitTimeout(10 * time.Second)
+
+	link, _ := wd.FindElement(selenium.ByLinkText, "DaeseongSwift")
+	link.Click()
 
 	wd.SetImplicitWaitTimeout(10 * time.Second)
 
