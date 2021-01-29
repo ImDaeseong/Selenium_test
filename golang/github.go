@@ -31,6 +31,7 @@ func main() {
 	}
 	defer wd.Quit()
 
+	//사이트 호출
 	err = wd.Get("https://github.com/ImDaeseong")
 	if err != nil {
 		panic(err)

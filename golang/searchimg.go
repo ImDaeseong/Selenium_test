@@ -1,4 +1,4 @@
-// google
+// searchimg
 package main
 
 import (
@@ -32,10 +32,24 @@ func main() {
 	defer wd.Quit()
 
 	//사이트 호출
-	err = wd.Get("https://www.google.com")
+	err = wd.Get("https://www.google.co.kr/imghp?hl=ko&tab=wi&ogbl")
 	if err != nil {
 		panic(err)
 	}
+
+	wd.SetImplicitWaitTimeout(10 * time.Second)
+
+	//검색창에 검색어 입력후 엔터
+	id, _ := wd.FindElement(selenium.ByName, `q`)
+	id.Clear()
+	id.SendKeys("이미지 캐릭터")
+	id.SendKeys(selenium.EnterKey)
+
+	wd.SetImplicitWaitTimeout(10 * time.Second)
+
+	//링크 클릭
+	link, _ := wd.FindElement(selenium.ByLinkText, "애니메이션")
+	link.Click()
 
 	wd.SetImplicitWaitTimeout(10 * time.Second)
 
@@ -47,5 +61,5 @@ func main() {
 	fmt.Println(title)
 	fmt.Println(pagesource)
 
-	time.Sleep(10 * time.Second)
+	time.Sleep(60 * time.Second)
 }

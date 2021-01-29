@@ -31,6 +31,7 @@ func main() {
 	}
 	defer wd.Quit()
 
+	//사이트 호출
 	err = wd.Get("https://github.com/ImDaeseong?tab=repositories")
 	if err != nil {
 		panic(err)
@@ -38,6 +39,7 @@ func main() {
 
 	wd.SetImplicitWaitTimeout(10 * time.Second)
 
+	//DaeseongSwift link 페이지 호출
 	link, _ := wd.FindElement(selenium.ByLinkText, "DaeseongSwift")
 	link.Click()
 

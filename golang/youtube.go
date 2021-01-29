@@ -30,6 +30,7 @@ func main() {
 	}
 	defer wd.Quit()
 
+	//사이트 호출
 	err = wd.Get("https://youtube.com")
 	if err != nil {
 		panic(err)
@@ -37,10 +38,12 @@ func main() {
 
 	wd.SetImplicitWaitTimeout(10 * time.Second)
 
+	//유튜브 검색창에 검색어 입력
 	id, _ := wd.FindElement(selenium.ByCSSSelector, `#search`)
 	id.Clear()
 	id.SendKeys("아이유")
 
+	//유튜브 검색버튼 클릭
 	searchbtn, _ := wd.FindElement(selenium.ByCSSSelector, `#search-icon-legacy > yt-icon`)
 	searchbtn.Click()
 

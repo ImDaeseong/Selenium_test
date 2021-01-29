@@ -31,6 +31,7 @@ func main() {
 	}
 	defer wd.Quit()
 
+	//사이트 호출
 	err = wd.Get("https://finance.naver.com/item/main.nhn?code=251270")
 	if err != nil {
 		panic(err)
